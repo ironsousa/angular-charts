@@ -22,8 +22,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    
-    this.price.push(-1);
     this.httpClient.get<Data[]>(this.url).subscribe({
         next: (res: Data[]) => {
 			res.forEach((y: Data) => {
@@ -60,7 +58,7 @@ export class AppComponent implements OnInit {
 			});
 		},
         error: (e) => console.log(e),
-        complete: () => console.info()
+        complete: () => console.info("Complete!")
     });
     
   }

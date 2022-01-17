@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  mockapi:
+    build: ./backend/
+    container_name: mockapi_container
+    restart: always
+    ports:
+      - "4000:4000"
+  web:
+    build: ./frontend/
+    container_name: angularcharts_container
+    restart: always
+    ports:
+      - "4200:4200"
+    depends_on:
+      - mockapi
